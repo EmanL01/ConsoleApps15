@@ -202,7 +202,5 @@ namespace ConsoleAppProject.App01
                 Console.WriteLine(feet + " feet is " + metres + "metres!");
             }
         }
-
-
     }
 }
