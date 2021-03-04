@@ -1,0 +1,31 @@
+﻿@model ConsoleAppProject.App01.DistanceConverter
+@using ConsoleAppProject.App01
+@{
+    ViewData["Title"] = "EL Distance Converter";
+}
+
+<header class="text-center jumbotron justify-content-center">
+
+    <h1>Distance Converter</h1>
+    <h1>by Eman Limbu</h1>
+    <p>
+        This app will Convert a user input distance from one unit to another into 
+        the equivalent distance.
+    </p>
+
+</header>
+
+<form method="post">
+
+    <h2>Convert From:</h2>
+
+    <p>
+        <label>From unit: </label>
+        <select asp-for="@Model.Frmunit">
+            <option>@DistanceConverter.Miles</option>
+            <option></option>
+        </select>
+    </p>
+</form>
+
+

@@ -11,16 +11,26 @@ namespace ConsoleAppProject.App01
  
     public class DistanceConverter
     {
-        private int frmunit;
-        private int tounit;
-        private Double miles;
-        private Double feet;
-        private Double metres;
+        public int Frmunit { get; set; }
 
+        public int Tounit { get; set; }
+
+        public Double Miles { get; set; }
+
+        public Double Feet { get; set; }
+
+        public Double Metres { get; set; }
+
+        public DistanceUnits DistanceUnits
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void Run()
         {
-            Outputheading();
             Convertfrm();
             Frmoutput();
             Convertto();
@@ -30,13 +40,6 @@ namespace ConsoleAppProject.App01
             OutputConversion();
         }
 
-        private void Outputheading()
-        {
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine("\tConvert Distances");
-            Console.WriteLine("\tby Eman Limbu");
-            Console.WriteLine("-------------------------------");
-        }
         private void Convertfrm()
         {
             Console.WriteLine("Select distance unit to convert from >\n");
@@ -49,15 +52,15 @@ namespace ConsoleAppProject.App01
         public void Frmoutput()
         {
             string value = Console.ReadLine();
-            frmunit = Convert.ToInt32(value);
+            Frmunit = Convert.ToInt32(value);
 
-            if (frmunit == 1)
+            if (Frmunit == 1)
                 Console.WriteLine("\nYou have selected Feet\n");
 
-            else if (frmunit == 2)
+            else if (Frmunit == 2)
                 Console.WriteLine("\nYou have selected Metres\n");
 
-            else if (frmunit == 3)
+            else if (Frmunit == 3)
                 Console.WriteLine("\nYou have selected Miles\n");
         }
 
@@ -73,133 +76,133 @@ namespace ConsoleAppProject.App01
         private void Tooutput()
         {
             string value = Console.ReadLine();
-            tounit = Convert.ToInt32(value);
+            Tounit = Convert.ToInt32(value);
 
-            if (tounit == 1)
+            if (Tounit == 1)
                 Console.WriteLine("\nYou have selected Feet\n");
 
-            else if (tounit == 2)
+            else if (Tounit == 2)
                 Console.WriteLine("\nYou have selected Metres\n");
 
-            else if (tounit == 3)
+            else if (Tounit == 3)
                 Console.WriteLine("\nYou have selected Miles\n");
 
         }
 
-        private void Diffoutputs()
+        public void Diffoutputs() 
         {
-            if ((frmunit == 3) & (tounit == 1))
+            if ((Frmunit == 3) & (Tounit == 1))
             {
                 Console.WriteLine("Converting Miles to Feet");
                 Console.Write("\nEnter distance in Miles > ");
                 string value = Console.ReadLine();
-                miles = Convert.ToDouble(value);
+                Miles = Convert.ToDouble(value);
             }
 
-            else if ((frmunit == 1) & (tounit == 3))
+            else if ((Frmunit == 1) & (Tounit == 3))
             {
                 Console.WriteLine("Converting Feet to Miles");
                 Console.Write("\nEnter distance in Feet > ");
                 string value = Console.ReadLine();
-                feet = Convert.ToDouble(value);
+                Feet = Convert.ToDouble(value);
             }
 
-            else if ((frmunit == 3) & (tounit == 2))
+            else if ((Frmunit == 3) & (Tounit == 2))
             {
                 Console.WriteLine("Converting Miles to Metres");
                 Console.Write("\nEnter distance in Miles > ");
                 string value = Console.ReadLine();
-                miles = Convert.ToDouble(value);
+                Miles = Convert.ToDouble(value);
             }
 
-            else if ((frmunit == 2) & (tounit == 3))
+            else if ((Frmunit == 2) & (Tounit == 3))
             {
                 Console.WriteLine("Converting Metres to Miles");
                 Console.Write("\nEnter distance in Metres > ");
                 string value = Console.ReadLine();
-                metres = Convert.ToDouble(value);
+                Metres = Convert.ToDouble(value);
             }
 
-            else if ((frmunit == 2) & (tounit == 1))
+            else if ((Frmunit == 2) & (Tounit == 1))
             {
                 Console.WriteLine("Converting Metres to Feet");
                 Console.Write("\nEnter distance in Metres > ");
                 string value = Console.ReadLine();
-                metres = Convert.ToDouble(value);
+                Metres = Convert.ToDouble(value);
             }
 
-            else if ((frmunit == 1) & (tounit == 2))
+            else if ((Frmunit == 1) & (Tounit == 2))
             {
                 Console.WriteLine("Converting Feet to Metres");
                 Console.Write("\nEnter distance in Feet > ");
                 string value = Console.ReadLine();
-                feet = Convert.ToDouble(value);
+                Feet = Convert.ToDouble(value);
             }
         }
 
-        private void Calculatefeet()
+        public void Calculatefeet()
         {
-            if ((frmunit == 3) & (tounit == 1))
+            if ((Frmunit == 3) & (Tounit == 1))
             {
-                feet = miles * 5280;
+                Feet = Miles * 5280;
             }
 
-            else if ((frmunit == 1) & (tounit == 3))
+            else if ((Frmunit == 1) & (Tounit == 3))
             {
-                miles = feet / 5280;
+                Miles = Feet / 5280;
             }
 
-            else if ((frmunit == 3) & (tounit == 2))
+            else if ((Frmunit == 3) & (Tounit == 2))
             {
-                metres = miles * 1609.34;
+                Metres = Miles * 1609.34;
             }
 
-            else if ((frmunit == 2) & (tounit == 3))
+            else if ((Frmunit == 2) & (Tounit == 3))
             {
-                miles = metres / 1609.34;
+                Miles = Metres / 1609.34;
             }
 
-            else if ((frmunit == 2) & (tounit == 1))
+            else if ((Frmunit == 2) & (Tounit == 1))
             {
-                feet = metres * 3.28084;
+                Feet = Metres * 3.28084;
             }
 
-            else if ((frmunit == 1) & (tounit == 2))
+            else if ((Frmunit == 1) & (Tounit == 2))
             {
-                metres = feet / 3.28084;
+                Metres = Feet / 3.28084;
             }
         }
 
         private void OutputConversion()
         {
-            if ((frmunit == 3) & (tounit == 1))
+            if ((Frmunit == 3) & (Tounit == 1))
             {
-                Console.WriteLine(miles + " miles is " + feet + "feet!");
+                Console.WriteLine(Miles + " miles is " + Feet + "feet!");
             }
 
-            else if ((frmunit == 1) & (tounit == 3))
+            else if ((Frmunit == 1) & (Tounit == 3))
             {
-                Console.WriteLine(feet + " feet is " + miles + "miles!");
+                Console.WriteLine(Feet + " feet is " + Miles + "miles!");
             }
 
-            else if ((frmunit == 3) & (tounit == 2))
+            else if ((Frmunit == 3) & (Tounit == 2))
             {
-                Console.WriteLine(miles + " miles is " + metres + "metres!");
+                Console.WriteLine(Miles + " miles is " + Metres + "metres!");
             }
 
-            else if ((frmunit == 2) & (tounit == 3))
+            else if ((Frmunit == 2) & (Tounit == 3))
             {
-                Console.WriteLine(metres + " metres is " + miles + "miles!");
+                Console.WriteLine(Metres + " metres is " + Miles + "miles!");
             }
 
-            else if ((frmunit == 2) & (tounit == 1))
+            else if ((Frmunit == 2) & (Tounit == 1))
             {
-                Console.WriteLine(metres + " metres is " + feet + "feet!");
+                Console.WriteLine(Metres + " metres is " + Feet + "feet!");
             }
 
-            else if ((frmunit == 1) & (tounit == 2))
+            else if ((Frmunit == 1) & (Tounit == 2))
             {
-                Console.WriteLine(feet + " feet is " + metres + "metres!");
+                Console.WriteLine(Feet + " feet is " + Metres + "metres!");
             }
         }
     }
