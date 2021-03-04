@@ -3,11 +3,12 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// Takes user input of distance to convert from to and the number of distance and converts it.
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Eman Limbu version 0.1
     /// </author>
+ 
     public class DistanceConverter
     {
         private int frmunit;
