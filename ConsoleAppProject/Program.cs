@@ -1,5 +1,6 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 using System;
 
 namespace ConsoleAppProject
@@ -12,9 +13,10 @@ namespace ConsoleAppProject
     /// This Project has been modified by:
     /// Eman Limbu 04/03/2021
     /// </summary>
+
     public static class Program
     {
-        public static DistanceConverter DistanceConverter
+        public static Grades Grades
         {
             get => default;
             set
@@ -25,17 +27,17 @@ namespace ConsoleAppProject
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            
+
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
 
+            Grades calculation = new Grades();
+            calculation.Run();
 
-            BMI Calculator = new BMI();
-            Calculator.Run();
+       
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.Run();
-            
         }
+
     }
+    
 }
