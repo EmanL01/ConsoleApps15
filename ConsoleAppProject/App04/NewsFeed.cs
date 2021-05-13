@@ -20,18 +20,15 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        private readonly List<Post> posts;
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            posts = new List<Post>();
         }
-
 
         ///<summary>
         /// Add a text post to the news feed.
@@ -40,7 +37,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            messages.Add(message);
+            posts.Add(message);
         }
 
         ///<summary>
@@ -50,7 +47,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
         }
 
         ///<summary>
@@ -60,19 +57,69 @@ namespace ConsoleAppProject.App04
         public void Display()
         {
             // display all text posts
-            foreach (MessagePost message in messages)
+            foreach (Post post in posts)
             {
-                message.Display();
-                Console.WriteLine();   // empty line between posts
-            }
-
-            // display all photos
-            foreach (PhotoPost photo in photos)
-            {
-                photo.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
         }
-    }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DisplayUserPost(string userpost)
+        {
+            int counter = 0;
+            
+            foreach (Post post in posts)
+            {
+                if (post.Username == userpost)
+                {
+                    post.Display();
+                    counter++;
+                }
+            }
+            
+            if (counter == 0)
+            {
+                Console.WriteLine("\n Unfortunately such user doesn't exist");
+            }
+        }
 
+        public void RemovePost(string userpost)
+        {
+            int counter = 0;
+
+            foreach (Post post in posts)
+            {
+                if (post.Username == userpost)
+                {
+                    posts.Remove(post);
+                    Console.WriteLine("This user post has been removed successfully\n");
+                    return; 
+                    counter++;
+                }
+            }
+
+            if (counter == 0)
+            {
+                Console.WriteLine("\n Unfortunately we couldn't find such user therfore the post removal is unsuccessfull");
+            }
+        }
+
+        public Post UserFinder(string user)
+        {
+            
+            foreach (Post post in posts)
+            {
+                if (user == post.Username)
+                {
+                    return post;
+                }
+            }
+            return null;
+        }
+
+
+    }
 }
+

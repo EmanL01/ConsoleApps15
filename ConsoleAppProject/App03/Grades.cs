@@ -114,5 +114,6 @@ namespace ConsoleAppProject.App03
 
             Console.WriteLine("\nMinimum Mark:" + min + "\nMaximum Mark:" + max + "\nMean Mark:" + mean / amountofnum);
         }
+
     }
 }

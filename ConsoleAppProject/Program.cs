@@ -1,6 +1,8 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
+
 using System;
 
 namespace ConsoleAppProject
@@ -16,14 +18,7 @@ namespace ConsoleAppProject
 
     public static class Program
     {
-        public static Grades Grades
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
+  
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -31,8 +26,8 @@ namespace ConsoleAppProject
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
 
-            Grades calculation = new Grades();
-            calculation.Run();
+            SocialNetwork social = new SocialNetwork();
+            social.Run();
 
        
 
